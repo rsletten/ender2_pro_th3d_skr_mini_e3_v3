@@ -23,7 +23,7 @@
 // The Ender 2 Pro requires Motor Adapter Cable from TH3D due to stock connections using 5 pins: https://www.th3dstudio.com/product/ender-2-pro-stepper-motor-adapter-cable-4-pack/
 
 // THE BOARD THIS FIRMWARE IS FOR IS A 3RD PARTY/AFTERMARKET/UPGRADE BOARD NOT STANDARD ON THESE MACHINES.
-// THIS FIRMWARE IS PROVIDED AS-IS AND NOT COVERED UNDER ANY TECHNICAL SUPPORT PROVIDED FOR TH3D PRODUCTS. 
+// THIS FIRMWARE IS PROVIDED AS-IS AND NOT COVERED UNDER ANY TECHNICAL SUPPORT PROVIDED FOR TH3D PRODUCTS.
 // CONTACT BIGTREETECH SUPPORT IF YOU REQUIRE SUPPORT ON THEIR PRODUCT OR YOU CAN POST IN OUR COMMUNITIES.
 // YOU MUST UNCOMMENT THE PRINTER LINE AND YOUR BOARD VERSION LINE TO COMPILE.
 
@@ -31,7 +31,7 @@
 // ***********   CREALITY PRINTERS W/SKR E3 MINI V3 BOARD    ****************
 //===========================================================================
 
-//#define ENDER2_PRO
+#define ENDER2_PRO
 //#define ENDER3
 //#define ENDER3_MAX
 //#define ENDER5
@@ -51,7 +51,7 @@
 // Failure to use our sensor with the EZOut adapter PCB OR without swapping the red and white wires will result in a short to ground.
 // Connect the EZOut sensor kit (or sensor only with wiring changed as per above) to the "E-Stop" port and uncomment the below line to enable the filament sensor.
 // Also works with the stock Ender 3 MAX sensor.
-//#define EZOUTV2_ENABLE
+#define EZOUTV2_ENABLE
 
 // Creality CR-10S Series Filament Sensor
 // Connect the stock sensor to the "E-Stop" port and uncomment the below line to enable the filament sensor.
@@ -67,7 +67,7 @@
 //#define ENDER5_OEM
 //#define ENDER5_PLUS_OEM
 //#define SPRITE_EXTRUDER_18MM_MOUNT // Mounts to the stock CRTouch bracket
-//#define CUSTOM_PROBE
+#define CUSTOM_PROBE
 
 // EZABL on Servo Header
 // If your EZABL is not triggering on the normal Z-Stop header uncomment the below line and then connect the EZABL across the PC14 and GND pins.
@@ -146,16 +146,16 @@
   *
   * Specify a Probe position as { X, Y, Z }
   * Do NOT enter an number for the Z position in here. Store your offset in EEPROM.
-  * 
+  *
   * When is the offset POSITIVE?
   * If the probe is right of the nozzle the offset on X is POSITIVE
   * If the probe is behind of the nozzle the offset on Y is POSITIVE
-  * 
+  *
   * When is the offset NEGATIVE?
   * If the probe is left of the nozzle the offset on X is NEGATIVE
   * If the probe is in front of the nozzle the offset on Y is NEGATIVE
   */
-  #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+  #define NOZZLE_TO_PROBE_OFFSET { -35.5, -18.5, 0 }
 #endif
 
 
@@ -172,12 +172,12 @@
 // If you need to reverse the e motor direction also enabled the REVERSE_E_MOTOR_DIRECTION option.
 // Example EStep Values: TH3D Aluminum Extruder - 95 ESteps, TH3D Tough Extruder - 410 ESteps, BMG Extruder - 415 ESteps
 // When installing a Tough Extruder or E3D Titan or Bondtech that is Geared you likely need to enable the REVERSE_E_MOTOR_DIRECTION option
-//#define CUSTOM_ESTEPS
-#define CUSTOM_ESTEPS_VALUE 410
+#define CUSTOM_ESTEPS
+#define CUSTOM_ESTEPS_VALUE 130
 //#define REVERSE_E_MOTOR_DIRECTION
 
 // FILAMENT SENSOR UNLOAD SETTINGS -----------------
-// If you have a filament sensor that is physically mounted to the machine you can enable MOUNTED_FILAMENT_SENSOR to set the unload length to 5mm to prevent filament from backing up in the sensor by uncommenting MOUNTED_FILAMENT_SENSOR 
+// If you have a filament sensor that is physically mounted to the machine you can enable MOUNTED_FILAMENT_SENSOR to set the unload length to 5mm to prevent filament from backing up in the sensor by uncommenting MOUNTED_FILAMENT_SENSOR
 //#define MOUNTED_FILAMENT_SENSOR
 
 // If you have a direct drive machine with a filament sensor uncomment DIRECT_DRIVE_PRINTER to decrease the unload length from 100mm to 20mm
@@ -226,8 +226,8 @@
 //#define FAN_FIX
 
 // Use your own printer name - Uncomment both lines
-//#define CUSTOM_PRINTER_NAME
-//#define USER_PRINTER_NAME "CHANGE ME"
+#define CUSTOM_PRINTER_NAME
+#define USER_PRINTER_NAME "Ender 2 Pro"
 
 // If your printer is homing to the endstops hard uncomment this to change the homing speed/divisor to make it less aggressive.
 //#define SLOWER_HOMING
@@ -293,7 +293,7 @@
 // PID BED TEMPERATURE CONTROL ---------------------
 // If you want PID Bed Temperature control enable the below line. You will need to tune it for your machine.
 // See the PID Bed setup guide here: https://support.th3dstudio.com/helpcenter/p-i-d-bed-calibration-guide/
-//#define ENABLE_PIDBED
+#define ENABLE_PIDBED
 
 // FINE BABYSTEPPING -------------------------------
 // Enabling the below line will set the babystep resolution from 0.025mm to 0.010mm for finer control.
@@ -309,15 +309,15 @@
 // If you want to use the BL-Touch uncomment the 2 lines below. Refer to BTT documentation for connecting the BL Touch.
 // Use the Z endstop port for the black/white wires from the BL Touch.
 // You also need to uncomment #define CUSTOM_PROBE above and then enter in your offsets above in the CUSTOM PROBE section.
-//#define BLTOUCH
+#define BLTOUCH
 // Here is where you set your servo pin. For SKR E3 Mini use PA1
-//#define SERVO0_PIN PA1
+#define SERVO0_PIN PA1
 // If you are using the 5 pin header for all the BL Touch connections, uncomment the below line
-//#define BLTOUCH_ON_5PIN
+#define BLTOUCH_ON_5PIN
 
 // MANUAL MESH LEVELING ----------------------------
 // If you want to use manual mesh leveling you can enable the below option. This is for generating a MANUAL mesh WITHOUT a probe. To change the mesh inset value change the EZABL_PROBE_EDGE setting above.
-// Mesh Bed Leveling Documentation: http://marlinfw.org/docs/gcode/G029-mbl.html 
+// Mesh Bed Leveling Documentation: http://marlinfw.org/docs/gcode/G029-mbl.html
 // NOTE: If you want to automate the leveling process our EZABL kits do this for you. Check them out here: http://EZABL.TH3DStudio.com
 //#define MANUAL_MESH_LEVELING
 
@@ -351,12 +351,12 @@
 /**
  * Machine Configuration Settings
  */
- 
+
  //Creality SKR E3 Mini V3 Board Settings
 #if ANY(ENDER2_PRO, ENDER3, ENDER3_MAX, ENDER5, ENDER5_PLUS, CR10, CR10_MINI, CR10_S4, CR10_S5)
   #define SERIAL_PORT 2
   #define SERIAL_PORT_2 -1
-  
+
   #if ANY(CR10, CR10_MINI, CR10_S4, CR10_S5)
     #define PRINTER_VOLTAGE_12
   #else
@@ -368,19 +368,19 @@
   #else
     #define BAUDRATE 115200
   #endif
-  
+
   #define CR10_STOCKDISPLAY
-  
+
   #if ENABLED(REVERSE_KNOB_DIRECTION) && DISABLED(ENDER5_PLUS)
     #define REVERSE_ENCODER_DIRECTION
   #endif
 
   #define SKR_E3_MINI_V3_0
-  
+
   #ifndef MOTHERBOARD
     #define MOTHERBOARD BOARD_BTT_SKR_MINI_E3_V3_0
   #endif
-  
+
   #if ENABLED(ENDER5_NEW_LEADSCREW)
     #define CREALITY_Z_STEPS 800
   #else
@@ -403,7 +403,7 @@
     #define Z_MAX_POS 180
     #define PRINTER_VOLTAGE_24
   #endif
-  
+
   #if ENABLED(ENDER5)
     #if ENABLED(XTENDER_E5_5XL)
       #define X_BED_SIZE 235
@@ -415,7 +415,7 @@
       #define Z_MAX_POS 300
     #endif
   #endif
-  
+
   #if ENABLED(ENDER5_PLUS)
     #if ENABLED(XTENDER_E5P_400)
       #define X_BED_SIZE 510
@@ -435,7 +435,7 @@
     #endif
     #define ENDER5_NEW_LEADSCREW
   #endif
-  
+
   #if ENABLED(ENDER3)
     #if ENABLED(XTENDER_E3_300)
       #define X_BED_SIZE 300
@@ -467,13 +467,13 @@
       #define Z_MAX_POS 250
     #endif
   #endif
-  
+
   #if ENABLED(ENDER3_MAX)
     #define X_BED_SIZE 300
     #define Y_BED_SIZE 300
     #define Z_MAX_POS 340
   #endif
-  
+
   #if ENABLED(CR10)
     #define DUAL_Z_MOTORS
     #define X_BED_SIZE 300
@@ -508,7 +508,7 @@
     #define PRINTER_VOLTAGE_12
     #define SLOWER_PROBE_MOVES
   #endif
-  
+
   #if ENABLED(HOME_ADJUST)
     #define X_MIN_POS X_HOME_LOCATION
     #define Y_MIN_POS Y_HOME_LOCATION
@@ -559,15 +559,15 @@
       #define TEMP_SENSOR_0 1
     #endif
   #endif
-  
-  #define TEMP_SENSOR_1 0 
+
+  #define TEMP_SENSOR_1 0
   #define TEMP_SENSOR_2 0
   #define TEMP_SENSOR_3 0
   #define TEMP_SENSOR_4 0
   #define TEMP_SENSOR_5 0
   #define TEMP_SENSOR_6 0
   #define TEMP_SENSOR_7 0
-  
+
   #if NONE(TH3D_BED_THERMISTOR, KEENOVO_TEMPSENSOR, KNOWN_BED_THERMISTOR, AC_BED)
     #define TEMP_SENSOR_BED 1
   #else
@@ -581,14 +581,14 @@
       #define TEMP_SENSOR_BED 11
     #endif
   #endif
-  
+
   #define TEMP_SENSOR_PROBE 0
   #define TEMP_SENSOR_CHAMBER 0
 
   #define DEFAULT_Kp 28.72
   #define DEFAULT_Ki 2.62
   #define DEFAULT_Kd 78.81
-  
+
   #define DEFAULT_bedKp 462.10
   #define DEFAULT_bedKi 85.47
   #define DEFAULT_bedKd 624.59
@@ -674,7 +674,7 @@
       #define INVERT_E0_DIR true
     #endif
   #endif
-  
+
   #define INVERT_E1_DIR false
   #define INVERT_E2_DIR false
   #define INVERT_E3_DIR false
@@ -688,7 +688,7 @@
 
   #define Z_PROBE_OFFSET_RANGE_MIN -10
   #define Z_PROBE_OFFSET_RANGE_MAX 10
-  
+
   #if ENABLED(ENDER5_PLUS)
     #if DISABLED(ENDER5_PLUS_NOABL) && DISABLED(ENDER5_PLUS_EZABL)
       #define BLTOUCH
@@ -702,7 +702,7 @@
         #define CUSTOM_PROBE
         #define NOZZLE_TO_PROBE_OFFSET { -44, -9, 0}
       #endif
-    #endif  
+    #endif
     #if DISABLED(ENDER5_PLUS_NOABL)
       #define ABL_ENABLE
     #endif
@@ -738,7 +738,7 @@
       //#define FILAMENT_MOTION_SENSOR
     #endif
   #endif
-  
+
   #if ENABLED(EZNEO_220)
     #define RGB_LIGHTS
     #define NEOPIXEL_LED
@@ -767,10 +767,10 @@
   #endif
 #endif
 // End SKR E3 Mini V3 Board Settings
- 
+
 /*
  * All other settings are stored in the Configuration_backend.h and Configuration_speed.h files. Do not change unless you know what you are doing.
  */
- 
+
 #include "Configuration_backend.h"
 #include "Configuration_speed.h"
